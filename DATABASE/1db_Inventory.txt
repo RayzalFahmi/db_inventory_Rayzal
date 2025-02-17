@@ -1,0 +1,13 @@
+1.CREATE DATABASE db_Inventory
+2.CREATE TABLE barang(
+id_barang INT PRIMARY KEY,nama_barang varchar (50),bentuk_barang varchar(50) );
+3.CREATE TABLE jenis(
+id_jenis INT PRIMARY KEY,nama_jenis varchar (50),id_barang INT );
+4.INSERT INTO barang VALUES
+('1','kardus','kotak'),
+('2','Bola','bulat'),
+('3','Meja','kotak');
+5.INSERT INTO jenis VALUES
+('001','penyimpan barang','1'),
+('002','peralatan olahraga','2'),
+('003','furniture','3');
