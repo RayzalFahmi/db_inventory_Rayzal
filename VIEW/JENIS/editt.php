@@ -25,25 +25,27 @@
         
 </nav>
 <div class="container">
-    <h1>Halaman Tambah Barang</h1>
-    <form action="simpan.php" method="POST">
+    <h1 ">Edit Jenis</h1>
+    <br>
+    <?php
+    $id_jenis = $_GET['id'];
+    include '../../CONFIG/koneksi.php';
+
+    $query=mysqli_query($conn, "SELECT * FROM jenis WHERE id_jenis='$id_jenis'");
+    $result=mysqli_fetch_array($query);
+    ?>
+    
+    <form action="proses1.php?id_jenis=<?php echo $result['id_jenis']?>" method="POST">
+  
+  <div class="mb-3">
+    <label for="" class="form-label">NAMA JENIS</label>
+    <input type="text" name="nama_jenis" class="form-control" id=""  aria-describedby="helpid " value="<?php echo $result['nama_jenis']?>" >
+  </div>
   <div class="mb-3">
     <label for="" class="form-label">ID BARANG</label>
-    <input type="text" name="id_barang" class="form-control"  >
-    <div  class="form-text"></div>
+    <input type="text" name="id_barang" class="form-control" id="" aria-describedby="helpid " value="<?php echo $result['id_barang']?>">
   </div>
-  <div class="mb-3">
-    <label for="" class="form-label">NAMA BARANG</label>
-    <input type="text" name="nama_barang" class="form-control" id="">
-  </div>
-  <div class="mb-3">
-    <label for="" class="form-label">Bentuk barang</label>
-    <input type="text" name="bentuk_barang" class="form-control" id="">
-  </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  
   <button type="submit" class="btn btn-primary">Simpan</button>
   <a href="index.php"  class="btn btn-warning">KEMBALI</a>
 </form>

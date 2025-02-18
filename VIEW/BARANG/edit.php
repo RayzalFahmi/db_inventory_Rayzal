@@ -25,25 +25,26 @@
         
 </nav>
 <div class="container">
-    <h1>Halaman Tambah Barang</h1>
-    <form action="simpan.php" method="POST">
-  <div class="mb-3">
-    <label for="" class="form-label">ID BARANG</label>
-    <input type="text" name="id_barang" class="form-control"  >
-    <div  class="form-text"></div>
-  </div>
+    <h1>Edit Barang</h1>
+    <?php
+    $id_barang = $_GET['id'];
+    include '../../CONFIG/koneksi.php';
+
+    $query=mysqli_query($conn, "SELECT * FROM barang WHERE id_barang='$id_barang'");
+    $result=mysqli_fetch_array($query);
+    ?>
+    
+    <form action="proses.php?id_barang=<?php echo $result['id_barang']?>" method="POST">
+  
   <div class="mb-3">
     <label for="" class="form-label">NAMA BARANG</label>
-    <input type="text" name="nama_barang" class="form-control" id="">
+    <input type="text" name="nama_barang" class="form-control" id=""  aria-describedby="helpid " value="<?php echo $result['nama_barang']?>" >
   </div>
   <div class="mb-3">
     <label for="" class="form-label">Bentuk barang</label>
-    <input type="text" name="bentuk_barang" class="form-control" id="">
+    <input type="text" name="bentuk_barang" class="form-control" id="" aria-describedby="helpid " value="<?php echo $result['bentuk_barang']?>">
   </div>
-  <div class="mb-3 form-check">
-    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-    <label class="form-check-label" for="exampleCheck1">Check me out</label>
-  </div>
+  
   <button type="submit" class="btn btn-primary">Simpan</button>
   <a href="index.php"  class="btn btn-warning">KEMBALI</a>
 </form>
