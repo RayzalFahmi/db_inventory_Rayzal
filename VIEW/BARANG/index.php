@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg bg-body-tertiary">
@@ -21,32 +22,14 @@
         <li class="nav-item">
           <a class="nav-link" href="../JENIS/index.php">Jenis</a>
         </li>
-        <li class="nav-item dropdown">
-          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-            Dropdown
-          </a>
-          <ul class="dropdown-menu">
-            <li><a class="dropdown-item" href="#">Action</a></li>
-            <li><a class="dropdown-item" href="#">Another action</a></li>
-            <li><hr class="dropdown-divider"></li>
-            <li><a class="dropdown-item" href="#">Something else here</a></li>
-          </ul>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link disabled" aria-disabled="true">Disabled</a>
-        </li>
-      </ul>
-      <form class="d-flex" role="search">
-        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
-        <button class="btn btn-outline-success" type="submit">Search</button>
-      </form>
-    </div>
-  </div>
+       
 </nav>
 <div class="container">
 
     <h1>Data Barang</h1>
-    <a href="tambah.php">Tambah Barang</a>
+    <a href="tambah.php" class="btn btn-warning" >Tambah Barang</a>
+    <br>
+    <br>
     <table class="table table-bordered">
         <thead>
             <th>id_barang</th>
@@ -66,8 +49,9 @@
                     <td><?php echo $result ['nama_barang'] ?></td>
                     <td><?php echo $result ['bentuk_barang'] ?></td>
                     <td>
-                        <a href="view_edit.php?id=<?php echo $result['id_barang'];?>"class="btn btn-warning">Edit</a>
-                        <a href="proses_hapus.php?id=<?php echo $result['id_barang'];?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-danger">Hapus</a>
+                        <a href="edit.php?id=<?php echo $result['id_barang'];?>"class="btn btn-warning"><i class="fa-regular fa-pen-to-square"></i>Edit</a>
+                        <a href="hapus.php?id=<?php echo $result['id_barang'];?>"onclick="return confirm('Apakah Anda yakin ingin menghapus data ini?')" class="btn btn-danger"><i class="fa-solid fa-delete-left"></i>
+                        Hapus</a>
                     </td>
                     
                   </tr>
